@@ -10,6 +10,6 @@ setup(
     url="https://github.com/pouncysilverkitten/pylint-badge",
     install_requires=["pylint",],
     entry_points = {
-        'console_scripts': ['pylint-badge=pylint-badge.pylint-badge:main'],
+        'console_scripts': ['pylint-badge:main'],
     },
 )
