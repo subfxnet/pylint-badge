@@ -4,14 +4,9 @@ pylint badges for everyone!
 
 ## Howto
 
-1. Run `pylint --output-format=json`
-### bash alias for markdown text
-run `pybadge <pyfile>`
-```
-function pybadge() {
-	echo "![pylint Score](https://mperlet.github.io/pybadge/badges/$(pylint $1 2> /dev/null | tail -n2 | awk '{print $7}' | cut -d"/" -f1).svg)"
-}
-```
+1. Install via `pip` or other method.
+2. Run as follows: `pylint-badge script.py` which will produce a file `pylint.svg` in the current directory. 
+
 ## Color intervals
 
 0.00 < ![pylint Score](https://mperlet.github.io/pybadge/badges/1.50.svg) < 3.00 < ![pylint Score](https://mperlet.github.io/pybadge/badges/5.51.svg) < 7.00 ![pylint Score](https://mperlet.github.io/pybadge/badges/9.73.svg) < 10.00
@@ -19,10 +14,6 @@ function pybadge() {
 ## Limitations
 
 * negative scores are not supported
-* no dynamic badges, needs something like continuous integration services
 
 ## Idea
-
-I was looking for python badges and could not find any for pylint.
-The idea for this implementation is inspired from the blogpost
-http://www.desmondrivet.com/blog/technical/pylint-badges.html.
+Inspired by mperlet's [pybadge](https://github.com/mperlet/pybadge), which was in turn inspired by [this blogpost](http://www.desmondrivet.com/blog/technical/pylint-badges.html.)
