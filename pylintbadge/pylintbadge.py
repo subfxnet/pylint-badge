@@ -22,8 +22,9 @@ def main():
         color = color_warning
     else:
         color = color_ok
-    
-    with open("pylint.svg", 'w') as score_file:
+
+    filename = file_to_lint.split('.')[0]+.svg
+    with open(filename, 'w') as score_file:
         score_file.write(template.format(score=score, color=color))
 
 if __name__ == "__main__":
