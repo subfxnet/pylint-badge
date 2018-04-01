@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pylint-badge',
-    version='0.9',
+    version='0.9.5',
     description="Runs pylint to generate badges",
     author="Pouncy Silverkitten",
     author_email="pouncy.sk@gmail.com",
