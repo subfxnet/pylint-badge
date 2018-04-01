@@ -23,7 +23,7 @@ def main():
     else:
         color = color_ok
 
-    filename = file_to_lint.split('.')[0]+.svg
+    filename = file_to_lint.split('.')[0]+'.svg'
     with open(filename, 'w') as score_file:
         score_file.write(template.format(score=score, color=color))
 
