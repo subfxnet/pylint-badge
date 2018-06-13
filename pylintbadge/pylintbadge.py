@@ -1,6 +1,34 @@
+def get_color(score):
+    colors={
+  "brightgreen":    "#4c1" ,
+  "green":          "#97CA00" ,
+  "yellow":         "#dfb317" ,
+  "yellowgreen":    "#a4a61d" ,
+  "orange":         "#fe7d37" ,
+  "red":            "#e05d44" ,
+  "blue":           "#007ec6" ,
+  "grey":           "#555" ,
+  "gray":           "#555" ,
+  "lightgrey":      "#9f9f9f" ,
+  "lightgray":      "#9f9f9f" 
+}
+    if score > 9:
+	return colors['brightgreen']
+    if score > 8:
+        return colors['green']  
+    if score > 7.5:
+        return colors['yellowgreen']  
+    if score > 6.6:
+        return clors['yellow']   
+    if score > 5.0:
+        return colors['orange']     
+    if score > 0.00:
+	return colors['red']
+    return colors['gray']
+
 def main():
     import argparse
-
+    
     from pylint.lint import Run
     
     parser = argparse.ArgumentParser()
@@ -8,7 +36,7 @@ def main():
     args = parser.parse_args()
     file_to_lint = args.file_to_lint
     
-    score = round(Run([file_to_lint], do_exit=False).linter.stats['global_note'], 2)
+    score = round(Run([file_to_lint], exit=False).linter.stats['global_note'], 2)
     
     template = '<svg xmlns="http://www.w3.org/2000/svg" width="85" height="20"><linearGradient id="a" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><rect rx="3" width="85" height="20" fill="#555"/><rect rx="3" x="50" width="35" height="20" fill="{color}"/><path fill="{color}" d="M50 0h4v20h-4z"/><rect rx="3" width="85" height="20" fill="url(#a)"/><g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11"><text x="25" y="15" fill="#010101" fill-opacity=".3">pylint</text><text x="25" y="14">pylint</text><text x="67" y="15" fill="#010101" fill-opacity=".3">{score}</text><text x="67" y="14">{score}</text></g></svg>'
 
@@ -16,12 +44,14 @@ def main():
     color_warning = "#dfb317"
     color_red = "#e05f44"
     
-    if float(score) < 3.0:
-        color = color_red
-    elif float(score) >= 3.0 and float(score) < 7.0:
-        color = color_warning
-    else:
-        color = color_ok
+#    if float(score) < 3.0:
+#        color = color_red
+#    elif float(score) >= 3.0 and float(score) < 7.0:
+#        color = color_warning
+#    else:
+#        color = color_ok
+
+    color = get_color(float(score))
 
     filename = file_to_lint.split('.')[0]+'.svg'
     print(filename)
