@@ -19,7 +19,7 @@ def get_color(score):
     if score > 7.5:
         return colors['yellowgreen']  
     if score > 6.6:
-        return clors['yellow']   
+        return colors['yellow']   
     if score > 5.0:
         return colors['orange']     
     if score > 0.00:
