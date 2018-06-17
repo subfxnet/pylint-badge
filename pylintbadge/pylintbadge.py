@@ -6,6 +6,7 @@ def get_color(score):
   "yellowgreen":    "#a4a61d" ,
   "orange":         "#fe7d37" ,
   "red":            "#e05d44" ,
+  "bloodred":       "#ff0000" , 
   "blue":           "#007ec6" ,
   "grey":           "#555" ,
   "gray":           "#555" ,
@@ -24,7 +25,7 @@ def get_color(score):
         return colors['orange']     
     if score > 0.00:
 	return colors['red']
-    return colors['gray']
+    return colors['bloodred']
 
 def main():
     import argparse
